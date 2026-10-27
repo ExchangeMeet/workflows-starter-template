@@ -1,50 +1,208 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+// src/pages/index.astro — Coming Soon landing page for ExchangeMeet
 ---
 
-<!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>ExchangeMeet — Buy, Sell, and Swap Locally</title>
+		<meta name="description" content="A refreshingly simple marketplace. List what you have, find what you need, meet your neighbors. No algorithms, no junk." />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 	</head>
 	<body>
-		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<header>
+				<img src="/logo.png" alt="ExchangeMeet logo" width="72" height="72" />
+				<h1>ExchangeMeet</h1>
+			</header>
+
+			<section class="hero">
+				<h2>Buy. Sell. Swap. Meet your neighbors.</h2>
+				<p class="tagline">
+					A refreshingly simple marketplace — list what you have,
+					find what you need, and trade with real people nearby.
+					No algorithm deciding what you see. No junk listings.
+					Just good old-fashioned exchanging, made easy.
+				</p>
+			</section>
+
+			<section class="signup">
+				<h3>Be first in line</h3>
+				<p>We're opening the doors soon. Leave your email and we'll
+				let you know the moment ExchangeMeet launches in your area.</p>
+				<form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+					<input
+						type="email"
+						name="email"
+						placeholder="you@example.com"
+						required
+						aria-label="Email address"
+					/>
+					<button type="submit">Notify me</button>
+				</form>
+				<p class="fine-print">One email when we launch. Nothing else. No spam.</p>
+			</section>
+
+			<section class="features">
+				<div class="feature">
+					<h4>🤝 Neighbor-to-neighbor</h4>
+					<p>Trade with people in your community, not anonymous strangers across the country.</p>
+				</div>
+				<div class="feature">
+					<h4>🔍 No algorithm games</h4>
+					<p>Listings sorted by relevance and recency — what you see is what's actually there.</p>
+				</div>
+				<div class="feature">
+					<h4>💰 Swap, don't just sell</h4>
+					<p>Offer trades, cash, or both. One person's attic treasure is another's next project.</p>
+				</div>
+			</section>
+
+			<footer>
+				<p>© 2026 ExchangeMeet · <a href="mailto:hello@exchangemeet.com">hello@exchangemeet.com</a></p>
+			</footer>
 		</main>
-		<Footer />
 	</body>
 </html>
+
+<style>
+	:root {
+		--purple: #6d4aff;
+		--dark: #1a1a2e;
+		--light: #f7f7fb;
+		--gray: #666;
+	}
+
+	body {
+		font-family: system-ui, -apple-system, sans-serif;
+		margin: 0;
+		background: var(--light);
+		color: var(--dark);
+		line-height: 1.6;
+	}
+
+	main {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 3rem 1.5rem;
+		text-align: center;
+	}
+
+	header h1 {
+		font-size: 2.25rem;
+		margin: 0.5rem 0 0;
+		letter-spacing: -0.02em;
+	}
+
+	.hero h2 {
+		font-size: 1.75rem;
+		margin-top: 3rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.tagline {
+		font-size: 1.125rem;
+		color: var(--gray);
+		max-width: 540px;
+		margin: 0 auto;
+	}
+
+	.signup {
+		background: #fff;
+		border: 1px solid #e5e5ef;
+		border-radius: 16px;
+		padding: 2.5rem 2rem;
+		margin: 3rem 0;
+		box-shadow: 0 4px 24px rgba(109, 74, 255, 0.06);
+	}
+
+	.signup h3 {
+		margin-top: 0;
+		font-size: 1.5rem;
+	}
+
+	form {
+		display: flex;
+		gap: 0.75rem;
+		max-width: 480px;
+		margin: 1.5rem auto 0;
+	}
+
+	input[type='email'] {
+		flex: 1;
+		padding: 0.85rem 1rem;
+		border: 1px solid #ccc;
+		border-radius: 10px;
+		font-size: 1rem;
+		min-width: 0;
+	}
+
+	input[type='email']:focus {
+		outline: 2px solid var(--purple);
+		border-color: transparent;
+	}
+
+	button {
+		background: var(--purple);
+		color: #fff;
+		border: none;
+		border-radius: 10px;
+		padding: 0.85rem 1.5rem;
+		font-size: 1rem;
+		font-weight: 600;
+		cursor: pointer;
+		white-space: nowrap;
+	}
+
+	button:hover {
+		filter: brightness(1.1);
+	}
+
+	.fine-print {
+		font-size: 0.8rem;
+		color: var(--gray);
+		margin-bottom: 0;
+	}
+
+	.features {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1.5rem;
+		text-align: left;
+		margin: 3rem 0;
+	}
+
+	.feature {
+		background: #fff;
+		border-radius: 12px;
+		padding: 1.25rem;
+		border: 1px solid #e5e5ef;
+	}
+
+	.feature h4 {
+		margin: 0 0 0.5rem;
+	}
+
+	.feature p {
+		margin: 0;
+		font-size: 0.925rem;
+		color: var(--gray);
+	}
+
+	footer {
+		margin-top: 3rem;
+		color: var(--gray);
+		font-size: 0.875rem;
+	}
+
+	footer a {
+		color: var(--purple);
+	}
+
+	@media (max-width: 480px) {
+		form {
+			flex-direction: column;
+		}
+	}
+</style>
